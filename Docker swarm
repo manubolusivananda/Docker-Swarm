@@ -1,0 +1,35 @@
+TITLE = DOCKER SWARM
+FIRST OFF ALL WHAT IS DOCKER SWARM ?
+--> Tt is an orchestration tool for containers.
+--> used to manage multiple containers on multiple servers.
+--> here we can create cluster --> what is means it is a group of servers.
+--> in that cluster we can create same containe on multiple servers.
+--> here we have the manager node and worker node.
+--> the purpose of manager node will create and distribute the container to worker nodes.
+--> worker node main purpose is to maintain the containers
+--> without docker engine we cannot create the cluster
+--> port number is 2377
+--> it has high avalibility  means more than one server.
+--> worker node wii join on manager node by using token then only my worker node communicate.
+--> individual containers are not going to replicate to worker nodes
+--> if we create a service then only container will be distributed.
+WHAT IS SERVICE =its a way of exposing and manage multiple container in docker swarm
+in service we can create copy of containers 
+that containers copies will be distributed to all the nodes.
+PROCESS:
+first: create a 3 servers
+    1.manager node
+    2.worker node-1
+    3.worker node-2
+second:
+    install docker engine three servers yum install docker -y
+third:
+go to manager node give command 
+   docker swarm init it will generate the token
+fourth:
+copy that token and go and paste worker node-1 and workernode-2 then will be communicate to manager node.
+set is complted 
+
+THEN I WANT CREATE CONTAINER
+docker run -itd --name cont1 -p 81:80 sivanandkatta/latest(this is my image)
+now go and take ip add and paste to newtap it will runing the application.
